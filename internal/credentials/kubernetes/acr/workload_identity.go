@@ -161,10 +161,10 @@ func (p *WorkloadIdentityProvider) getAccessToken(ctx context.Context, registryN
 		return "", fmt.Errorf("failed to exchange Azure AD token for ACR refresh token: %w", err)
 	}
 
-	if refreshTokenResp.ACRRefreshToken.RefreshToken == nil {
+	if refreshTokenResp.RefreshToken == nil {
 		return "", fmt.Errorf("received empty ACR refresh token")
 	}
 
 	logger.Debug("successfully obtained ACR refresh token")
-	return *refreshTokenResp.ACRRefreshToken.RefreshToken, nil
+	return *refreshTokenResp.RefreshToken, nil
 }

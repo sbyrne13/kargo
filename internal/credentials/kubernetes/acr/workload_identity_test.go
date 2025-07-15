@@ -301,7 +301,7 @@ func TestACRURLRegex(t *testing.T) {
 // mockCredential is a mock implementation of azcore.TokenCredential for testing
 type mockCredential struct{}
 
-func (m *mockCredential) GetToken(ctx context.Context, options policy.TokenRequestOptions) (azcore.AccessToken, error) {
+func (m *mockCredential) GetToken(_ context.Context, _ policy.TokenRequestOptions) (azcore.AccessToken, error) {
 	// Return a mock token for testing
 	return azcore.AccessToken{
 		Token:     "mock-access-token",
